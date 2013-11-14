@@ -8,6 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol IMFOperationDelegate;
+
 @interface IMFOperation : NSOperation
+
+@end
+
+@protocol IMFOperationDelegate<NSObject>
+
+- (void)operationDidFinish:(UIView *)operation;
 
 @end

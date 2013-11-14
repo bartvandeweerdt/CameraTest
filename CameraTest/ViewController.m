@@ -10,7 +10,7 @@
 #import "ViewController.h"
 #import "IMFOperation.h"
 
-@interface ViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface ViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, IMFOperationDelegate>
 @property (nonatomic, strong) UIImagePickerController *imagePicker;
 @property (nonatomic, strong) NSOperationQueue *operationQueue;
 
@@ -40,9 +40,6 @@
         self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
         self.imagePicker.mediaTypes = @[(NSString *)kUTTypeImage];
         self.imagePicker.allowsEditing = NO;
-        //imagePicker.navigationBarHidden = YES;
-        //self.imagePicker.toolbarHidden = YES;
-        //imagePicker.modalPresentationStyle = UIModalPresentationPageSheet;
         
         [self presentViewController:self.imagePicker animated:NO completion:nil];
         
@@ -52,8 +49,15 @@
 }
 
 - (IBAction)gcdBtnTap:(id)sender {
-    IMFOperation *operation = [[IMFOperation alloc] init];
-    [self.operationQueue addOperation:operation];
+    for (int i=0; i<40; i++) {
+        IMFOperation *operation = [[IMFOperation alloc] init];
+        [self.operationQueue addOperation:operation];
+    }
+}
+
+- (void)operationDidFinish:(UIView *)operation {
+    NSLog(@"Operation did finish!");
+    [operation setNeedsDisplay];
 }
 
 #pragma mark - UIImagePickerControllerDelegate
