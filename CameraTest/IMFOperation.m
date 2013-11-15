@@ -9,22 +9,21 @@
 #import "IMFOperation.h"
 
 @interface IMFOperation()
-//@property (nonatomic, strong) UIView *theView;
+@property (nonatomic, strong) UIView *theView;
 @property (nonatomic, assign) id<IMFOperationDelegate> delegate;
 @end
 
 @implementation IMFOperation
 
 - (void)main {
-    // a lengthy operation
     @autoreleasepool {
-        UIView *aView = [[UIView alloc] init];
+        self.theView = [[UIView alloc] init];
         
         for (int i = 0 ; i < 2 ; i++) {
             NSLog(@"%f", sqrt(i));
         }
         
-        [(NSObject *) self.delegate performSelectorOnMainThread:@selector(operationDidFinish:) withObject:aView waitUntilDone:NO];
+        [(NSObject *) self.delegate performSelectorOnMainThread:@selector(operationDidFinish:) withObject:self waitUntilDone:NO];
 
     }
 }

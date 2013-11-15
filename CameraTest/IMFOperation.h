@@ -16,6 +16,6 @@
 
 @protocol IMFOperationDelegate<NSObject>
 
-- (void)operationDidFinish:(UIView *)operation;
+- (void)operationDidFinish:(IMFOperation *)operation;
 
 @end

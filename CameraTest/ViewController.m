@@ -55,9 +55,8 @@
     }
 }
 
-- (void)operationDidFinish:(UIView *)operation {
+- (void)operationDidFinish:(IMFOperation *)operation {
     NSLog(@"Operation did finish!");
-    [operation setNeedsDisplay];
 }
 
 #pragma mark - UIImagePickerControllerDelegate
