@@ -16,4 +16,4 @@ If you just open the camera, everything works fine. If you first start the opera
 
 Again, you shouldn't call UIKit in anything but the main thread. But I don't think it's normal that breaking this rule causes the camera to malfunction when opening it later in the main thread as part of a completely different flow, right?
 
-Hope this helps some people.
+Hope this helps some people. I tried to add this as an answer to as much of the Stackoverflow and Apple dev forums questions I could remember/find again.
